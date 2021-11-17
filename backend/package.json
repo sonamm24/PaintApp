@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "db:reset": "node ./db/reset.js",
     "start": "PORT=3001 node ./bin/www"
   },
   "dependencies": {
@@ -12,6 +13,11 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.1",
+    "pg-native": "^3.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
   }
 }
