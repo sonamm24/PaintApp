@@ -17,9 +17,9 @@ import { Link } from 'react-router-dom'
     <label className= "Phone">Phone No.:
       <input type="text" />
     </label><br/>
-    <label className="Email">Email address:
+    <label className="Email">Email addr:
       <input type="text" />
-    </label><br/><br />
+    </label><br/>
     <label className="Password">Password:
       <input type="text" />
     </label><br/>

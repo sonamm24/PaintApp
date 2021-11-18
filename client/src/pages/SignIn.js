@@ -38,7 +38,7 @@ function SignIn() {
         }}
       />
       </label>
-      <button className="btn btn-outline-primary" onClick={login}>Login</button>
+      <button class="button" onClick={login}>Login</button>
     </div>
   )
 }
