@@ -1,0 +1,52 @@
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.Label{
+  display: flex;
+  justify-content: center;
+  margin: 2em;
+  padding: 1em;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.Last {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.Phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.Email{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.btn btn-outline-primary{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  
+}
