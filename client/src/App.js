@@ -1,26 +1,24 @@
-import React from 'react';
-import Navbar from './components/NavBar';
+import { React } from 'react';
+import { Navbar } from './components/NavBar/NavBar';
 import './App.css';
-import './SignUp.css';
-import './SignIn.css';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import SignUp from './pages/SignUp';
-import SignIn from './pages/SignIn';
-import Painting from './pages/Painting'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Home } from './components/Home/Home';
+import { About } from './components/About/About';
+import { Painting } from './components/Painting/Painting'
+import { Login } from './components/Authentication/Login';
+import { Register } from './components/Authentication/Register';
 
 function App() {
   return (
     <Router>
-      
-     <Navbar/>
+
+      <Navbar />
       <Routes>
-        <Route path="/" exact element={<Home/>}/>
-        <Route path="/about"  element={<About/>}/>
-        <Route path="/Sign-Up"  element={<SignUp/>}/>
-        <Route path="/Signin"  element={<SignIn/>}/>
-        <Route path="/painting"  element={<Painting />}/>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/painting" element={<Painting />} />
       </Routes>
     </Router>
   );

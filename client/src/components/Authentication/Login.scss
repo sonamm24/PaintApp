@@ -1,0 +1,134 @@
+// .login-form {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .login-form label {
+//   padding: 20px;
+// }
+
+.base-container {
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  .header {
+    font-size: 24px;
+    font-family: "Open Sans", Sans-serif;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .image {
+    width: 21em;
+
+    img {
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+
+
+  .form {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: fit-content;
+
+      label {
+        font-size: 20px;
+      }
+
+      input {
+        margin-top: 6px;
+        min-width: 18em;
+        height: 37px;
+        padding: 8px 10px;
+        font-size: 16px;
+        font-family: 'Open-Sans', sans-serif;
+        background-color: #f3f3f3;
+        border: 0;
+        border-radius: 4px;
+        margin-bottom: 31px;
+        transition: all 250ms ease-in-out;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0px 0px 12px 0.8px #0e81ce96;
+        }
+      }
+
+    }
+  }
+
+  .footer {
+    margin-top: 3em;
+  }
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90%;
+  background-color: #3498db;
+  width: 100%;
+  position: absolute;
+  right: -34%;
+  border-radius: 6px;
+  z-index: 1;
+  transition: all 400ms ease-in-out;
+  cursor: pointer;
+  box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 15);
+}
+
+.right {
+  right: -40%;
+  align-items: flex-end;
+
+  &:hover {
+    right: 45%;
+  }
+}
+
+.left {
+  right: 40%;
+  align-items: flex-start;
+
+  &:hover {
+    right: 45%;
+  }
+}
+
+.btn {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
