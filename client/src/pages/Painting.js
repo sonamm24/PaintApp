@@ -1,60 +1,98 @@
-import React, { useRef, useState, useCallback, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 
 import '../../src/canvas.css'
 
 const colors = [
-  "red",
-  "green",
-  "yellow",
-  "black",
-  "blue"
+  {
+    name: "select a color",
+    ref: "#000000"
+  },
+  {
+    name: "red",
+    ref: "#D92C20"
+  },
+  {
+    name: "pink",
+    ref: "#F789A7"
+  },
+  {
+    name: "orange",
+    ref: "#FC813E"
+  },
+  {
+    name: "yellow",
+    ref: "#F5D56A"
+  },
+  {
+    name: "green",
+    ref: "#4CAF50"
+  },
+  {
+    name: "blue",
+    ref: "#12BFEC"
+  },
+  {
+    name: "purple",
+    ref: "#7A55BD"
+  },
+  {
+    name: "black",
+    ref: "#000000"
+  }
+]
+
+const lineWidth = [
+  {
+    name: "select size",
+    value: 1
+  },
+  {
+    name: "x-small",
+    value: 1
+  },
+  {
+    name: "small",
+    value: 3
+  },
+  {
+    name: "medium",
+    value: 7
+  },
+  {
+    name: "large",
+    value: 10
+  },
+  {
+    name: "x-large",
+    value: 15
+  }
 ]
 
 function Painting() {
-  const canvasRef = useRef(null);
-  const ctx = useRef(null);
 
+  const canvasRef = useRef(null);
+  const contextRef = useRef(null);
 
   const [selectedColor, setSelectedColor] = useState(colors[0]);
-  const [mouseDown, setMouseDown] = useState(false);
-  const [lastPosition, setPosition] = useState({
-    x: 0,
-    y: 0
-  });
+  const [selectedSize, setSelectedSize] = useState(lineWidth[0]);
+  const [isDrawing, setIsDrawing] = useState(false);
 
   useEffect(() => {
-    if (canvasRef.current) {
-      ctx.current = canvasRef.current.getContext('2d');
-    }
-    // const canvas = canvasRef.current
-    // canvas.width = window.innerWidth * 2;
-    // canvas.height = window.innerHeight * 2;
-    // canvas.style.width = `${window.innerWidth}px`;
-    // canvas.style.height = `${window.innerHeight}px`
+    const canvas = canvasRef.current
+    canvas.width = 600 * 2
+    canvas.height = 600 * 2
+    canvas.style.width = '600px'
+    canvas.style.height = '600px'
+    canvas.style.border = "2px solid #000";
 
-    // const context = canvas.getContext('2d')
-    // ctx.current = context
+    const context = canvas.getContext('2d')
+    context.scale(2, 2)
+    context.lineCap = "round"
+    context.strokeStyle = selectedColor;
+    context.lineWidth = selectedSize;
+    contextRef.current = context;
   }, []);
-
-  //Function to draw on the canvas
-  const draw = useCallback((x, y) => {
-    if (mouseDown) {
-      ctx.current.beginPath();
-      ctx.current.strokeStyle = selectedColor;
-      ctx.current.lineWidth = 10;
-      ctx.current.lineJoin = 'round';
-      ctx.current.moveTo(lastPosition.x, lastPosition.y);
-      ctx.current.lineTo(x, y);
-      ctx.current.closePath();
-      ctx.current.stroke();
-
-      setPosition({
-        x,
-        y
-      })
-    }
-  }, [lastPosition, mouseDown, selectedColor, setPosition])
 
   const download = async () => {
     const image = canvasRef.current.toDataURL('image/png');
@@ -67,23 +105,30 @@ function Painting() {
   }
 
   const clear = () => {
-    ctx.current.clearRect(0, 0, ctx.current.canvas.width, ctx.current.canvas.height)
+    contextRef.current.clearRect(0, 0, contextRef.current.canvas.width, contextRef.current.canvas.height)
   }
 
-  const onMouseDown = (e) => {
-    setPosition({
-      x: e.pageX,
-      y: e.pageY
-    })
-    setMouseDown(true)
+  const startDrawing = ({nativeEvent}) => {
+    const {offsetX, offsetY} = nativeEvent;
+    contextRef.current.beginPath();
+    contextRef.current.moveTo(offsetX, offsetY);
+    setIsDrawing(true)
   }
 
-  const onMouseUp = (e) => {
-    setMouseDown(false)
+  const finishDrawing = () => {
+    contextRef.current.closePath();
+    setIsDrawing(false)
   }
 
-  const onMouseMove = (e) => {
-    draw(e.pageX, e.pageY)
+  const draw = ({nativeEvent}) => {
+    if(!isDrawing) {
+      return
+    }
+    const {offsetX, offsetY} = nativeEvent;
+    contextRef.current.lineTo(offsetX, offsetY)
+    contextRef.current.strokeStyle = selectedColor;
+    contextRef.current.lineWidth = selectedSize;
+    contextRef.current.stroke();
   }
 
 
@@ -93,33 +138,43 @@ function Painting() {
       <div className="painting">
   
         <canvas className="canvas"
-          style={{
-            border: "1px solid #000",
-          }}
-          width={500}
-          height={500}
+          onMouseDown={startDrawing}
+          onMouseUp={finishDrawing}
+          onMouseMove={draw}
           ref={canvasRef}
-  
-          // logic for mouse movements
-          onMouseDown = {onMouseDown}
-          onMouseUp = {onMouseUp}
-          onMouseLeave = {onMouseUp}
-          onMouseMove = {onMouseMove}
         />
-        </div>
-        <div className="buttons">
+        </div> 
+        <div className="buttons-painting"> 
           <select
+            className="btn-paint"
             value={selectedColor}
             onChange={(e) => setSelectedColor(e.target.value)}
           >
             {
               colors.map(
-                color => <option key={color} value={color}>{color}</option>
+                color => <option key={color.name} value={color.ref}>{color.name}</option>
                 )
               }        
           </select>
-          <button onClick={clear}>Clear</button>
-          <button onClick={download}>Download</button>
+          &nbsp;
+          &nbsp;
+          <select
+            className="btn-paint"
+            value={selectedSize}
+            onChange={(e) => setSelectedSize(e.target.value)}
+          >
+            {
+              lineWidth.map(
+                size => <option key={size.name} value={size.value}>{size.name}</option>
+                )
+              }        
+          </select>
+          &nbsp;
+          &nbsp;
+          <button className="btn-paint" onClick={clear}>Clear</button>
+          &nbsp;
+          &nbsp;
+          <button className="btn-paint" onClick={download}>Download</button>
         </div>
             <Link to="/painting"></Link>
     </div>
