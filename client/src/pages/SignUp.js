@@ -23,7 +23,9 @@ import { Link } from 'react-router-dom'
     <label className="Password">Password:
       <input type="text" />
     </label><br/>
-    <button class="button">Button</button>
+    <Link to="/">
+    <button class="button">Submit</button>
+    </Link>
   </form>
   
   

@@ -3,12 +3,17 @@ import {Link} from 'react-router-dom'
 
 function Painting() {
   return (
-    <div>
-        <div style={{display: 'flex',justifyContent:'center',alignItems: 'center', height: '90vh'}}>
-      <h1>PAINTING CANVAS</h1>
-      <Link to="/painting"></Link>
-    </div>
-    </div>
+    <Dropdown>
+    <Dropdown.Toggle variant="success" id="dropdown-basic">
+      Dropdown Button
+    </Dropdown.Toggle>
+  
+    <Dropdown.Menu>
+      <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+      <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+      <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
   )
 }
 
