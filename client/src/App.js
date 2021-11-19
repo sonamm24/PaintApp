@@ -4,9 +4,9 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import { About } from './components/About/About';
-import { Painting } from './components/Painting/Painting'
 import { Login } from './components/Authentication/Login';
 import { Register } from './components/Authentication/Register';
+import Painting from './components/Painting/Painting';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/painting" element={<Painting />} />
+        <Route path="/painting" exact element={<Painting />}/>
       </Routes>
     </Router>
   );
