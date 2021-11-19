@@ -56,6 +56,20 @@ function Painting() {
     }
   }, [lastPosition, mouseDown, selectedColor, setPosition])
 
+  const download = async () => {
+    const image = canvasRef.current.toDataURL('image/png');
+    const blob = await (await fetch(image)).blob();
+    const blobURL = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = blobURL;
+    link.download = "image.png";
+    link.click();
+  }
+
+  const clear = () => {
+    ctx.current.clearRect(0, 0, ctx.current.canvas.width, ctx.current.canvas.height)
+  }
+
   const onMouseDown = (e) => {
     setPosition({
       x: e.pageX,
@@ -104,8 +118,8 @@ function Painting() {
                 )
               }        
           </select>
-          <button>Clear</button>
-          <button>Download</button>
+          <button onClick={clear}>Clear</button>
+          <button onClick={download}>Download</button>
         </div>
             <Link to="/painting"></Link>
     </div>
