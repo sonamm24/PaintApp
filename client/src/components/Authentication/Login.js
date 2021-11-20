@@ -1,6 +1,6 @@
 import React from "react";
 import './Login.scss';
-
+import { Link } from "react-router-dom";
 export class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -25,12 +25,15 @@ export class Login extends React.Component {
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="text" name="password" placeholder="password" />
+            <input type="password" name="password" placeholder="password" />
           </div>
         </div>
       </div>
+      
       <div className="footer">
+      <Link to="/about">
         <button type="button" className="btn">Login</button>
+        </Link>
       </div>
     </div>
   }

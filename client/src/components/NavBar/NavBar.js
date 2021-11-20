@@ -7,7 +7,7 @@ export class Navbar extends React.Component {
     return (
       <Nav>
         <NavLink to="/">
-          <h1>Logo</h1>
+         <img className= "Img" src="https://cdn.discordapp.com/attachments/910237667722133566/911712885221228605/unknown.png"></img>
         </NavLink>
         <Bars />
         <NavMenu>
