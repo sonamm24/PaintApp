@@ -25,7 +25,7 @@ export class Login extends React.Component {
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="text" name="password" placeholder="password" />
+            <input type="password" name="password" placeholder="password" />
           </div>
         </div>
       </div>
