@@ -1,6 +1,6 @@
 import React from "react";
 import './Login.scss';
-
+import { Link } from "react-router-dom";
 export class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -29,8 +29,11 @@ export class Login extends React.Component {
           </div>
         </div>
       </div>
+      
       <div className="footer">
+      <Link to="/about">
         <button type="button" className="btn">Login</button>
+        </Link>
       </div>
     </div>
   }

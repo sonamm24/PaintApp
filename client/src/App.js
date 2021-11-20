@@ -1,6 +1,8 @@
 import { React } from 'react';
 import { Navbar } from './components/NavBar/NavBar';
 import './App.css';
+import './components/About/About.css';
+import './components/NavBar/NavLogo.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import { About } from './components/About/About';
