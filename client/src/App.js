@@ -10,6 +10,9 @@ import {
 
 import { toast } from "react-toastify";
 import LandingPage from './components/LandingPage';
+import "./components/nav-bar.css"
+import "./App.css"
+
 
 
 // import  PublicNav  from './components/NavBar/PublicNav';
@@ -38,26 +41,26 @@ function App() {
 
   
 
-  // async function isAuth() {
-  //   try {
+  async function isAuth() {
+    try {
 
-  //     const response = await fetch("http://localhost:5000/auth/verify/", {
-  //       method: "GET",
-  //       headers: { token: localStorage.token }
-  //     })
+      const response = await fetch("http://localhost:5000/auth/verify/", {
+        method: "GET",
+        headers: { token: localStorage.token }
+      })
 
-  //     const parseRes = await response.json();
+      const parseRes = await response.json();
 
-  //     parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false)
+      parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false)
       
-  //   } catch (err) {
-  //     console.error(err.message)
-  //   }
-  // }
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
 
-  // useEffect(() => {
-  //   isAuth()
-  // })
+  useEffect(() => {
+    isAuth()
+  })
 
   
 
@@ -95,49 +98,11 @@ function App() {
           <Route path="/painting" 
           exact element={isAuthenticated ?  (<Painting />) : (<Navigate to="/"/>)}
             />
-          {/* <Route 
-            exact 
-            path="/landing-page" 
-            element={ !isAuthenticated ? (<LandingPage setAuth={setAuth}/>) : (<Navigate to="/member-dashboard" />)} 
+          <Route path="/about" 
+          exact element={<About />}
             />
-          <Route 
-            exact 
-            path="/member-dashboard" 
-            element={ isAuthenticated ? (<PrivateDashboard setAuth={setAuth}/>) : (<Navigate to="/landing-page" />)} 
-            />  */}
 
           </Routes>
-        {/* <Routes>
-          <Route 
-            exact 
-            path="/login" 
-            element={ !isAuthenticated ? (<LoginPage setAuth={setAuth}/>) : (<Navigate to="/member-dashboard" />)} 
-            />
-          <Route 
-            exact
-            path="/" 
-            element={ !isAuthenticated ? (<LandingPage setAuth={setAuth}/>) : (<Navigate to="/member-dashboard" />)} 
-            />
-          <Route 
-            exact 
-            path="/register" 
-            element={ !isAuthenticated ? (<RegisterPage setAuth={setAuth}/>) : (<Navigate to="/member-dashboard" />)} 
-            />
-          <Route path="/painting" 
-          exact element={isAuthenticated ?  (<Painting />) : (<Navigate to="/landing-page"/>)}
-            />
-          <Route 
-            exact 
-            path="/landing-page" 
-            element={ !isAuthenticated ? (<LandingPage setAuth={setAuth}/>) : (<Navigate to="/member-dashboard" />)} 
-            />
-          <Route 
-            exact 
-            path="/member-dashboard" 
-            element={ isAuthenticated ? (<PrivateDashboard setAuth={setAuth}/>) : (<Navigate to="/landing-page" />)} 
-            /> 
-
-          </Routes> */}
         </div>
       </Router>
 
@@ -150,14 +115,3 @@ function App() {
 }
 
 export default App;
-
-// <Router>
-//   <Navbar />
-//   <Routes>
-//     <Route path="/" exact element={<Home />} />
-//     <Route path="/about" element={<About />} />
-//     <Route path="/login" render={props => !isAuthenticated ? (<Login {...props} />) : <Navigate to="/register" /> } />
-//     <Route path="/register" element={<Register />} />
-//     <Route path="/painting" exact element={<Painting />}/>
-//   </Routes>
-// </Router>

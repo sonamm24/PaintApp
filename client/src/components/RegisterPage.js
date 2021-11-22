@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from "react-router-dom";
 
+import "../components/Authentication/SignUp.css"
+
 function RegisterPage({setAuth}) {
 
   const [inputs, setInputs] = useState({
@@ -44,15 +46,39 @@ function RegisterPage({setAuth}) {
 
   return (
     <Fragment>
-      <h1>Register Page</h1>
-      <form onSubmit={onSubmitForm}>
+      <div className="base-container">
+      <div className="header">Register</div>
+      <div className="content">
+
+      <div className="image">
+          <img
+            alt=""
+            className="pic"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkovC9a5Je29Pg-DaKoC5fPi8s2JAdD5wNqx1esDO7uEv4r9LFFAl1Xu-IZKZYBRMqBz4&usqp=CAU"
+          />
+        </div>
+      <form onSubmit={onSubmitForm} className="form">
+        <div className="form-group">
+        <label htmlFor="username">First Name</label>
         <input type="text" name="first_name" placeholder="First Name" value={first_name} onChange={e => onChange(e)} />
+        </div>
+        <div className="form-group">
+        <label htmlFor="username">Last Name</label>
         <input type="text" name="last_name" placeholder="Last Name" value={last_name} onChange={e => onChange(e)} />
+        </div>
+        <div className="form-group">
+        <label htmlFor="email">Email</label>
         <input type="email" name="email" placeholder="email" value={email} onChange={e => onChange(e)} />
+        </div>
+        <div className="form-group">
+        <label htmlFor="password">Password</label>
         <input type="password" name="password" placeholder="password" value={password} onChange={e => onChange(e)} />
+        </div>
         <button >Register</button>
       </form>
       <Link to="/login">Login</Link>
+      </div>
+      </div>
     </Fragment>
   )
 }

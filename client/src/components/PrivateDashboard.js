@@ -1,4 +1,5 @@
-import React, {Fragment, useState, useEffect} from 'react'
+import React, {Fragment, useState, useEffect} from 'react';
+import {Link} from "react-router-dom";
 
 
 function PrivateDashboard({setAuth}) {
@@ -38,13 +39,18 @@ function PrivateDashboard({setAuth}) {
    }
 
   return (
-    <Fragment>
+    <Fragment className="fragment">
  
-      <div className="nav">
+      <div className="nav-bar">
         <div className="left-side">
-
+        <Link to="/">
+        <img className= "img-logo" src={require('../images/cover.png')} ></img>
+        </Link>
         </div>
         <div className="middle">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/painting">Create a Painting</Link>
 
         </div>
         <div className="right side">
