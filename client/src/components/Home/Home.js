@@ -2,13 +2,13 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
+
 export class Home extends React.Component {
 
   render() {
     return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '120' }}>
+    
 
-      <Link to="/"></Link>
       <div className="parallax">
         <img
           alt=""
@@ -17,7 +17,6 @@ export class Home extends React.Component {
         />
       </div>
 
-    </div>
     );
   }
 }
