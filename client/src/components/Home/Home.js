@@ -2,13 +2,17 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
+
 export class Home extends React.Component {
 
   render() {
     return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '120' }}>
+    
 
+<<<<<<< HEAD
+=======
       <Link to="/PaintApp/"></Link>
+>>>>>>> d58ee5d3c6891055603a82f503d89ff560c805c8
       <div className="parallax">
         <img
           alt=""
@@ -17,7 +21,6 @@ export class Home extends React.Component {
         />
       </div>
 
-    </div>
     );
   }
 }
