@@ -1,7 +1,14 @@
-# PAINT-APP
+# PAINT-APP - Front End Web App
+
+
+# The Team
+
+** Sonam Malhotra
+** Carolyn
+
+# Description
 
 Paint app is a front-end painting app that provides a blank canvas for the user to express their creativity. Our app was built in React with JS, HTML and CSS.
-
 
 
 # GETTING STARTED
