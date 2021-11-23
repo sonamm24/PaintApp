@@ -9,6 +9,10 @@ export class Home extends React.Component {
     return (
     
 
+<<<<<<< HEAD
+=======
+      <Link to="/PaintApp/"></Link>
+>>>>>>> d58ee5d3c6891055603a82f503d89ff560c805c8
       <div className="parallax">
         <img
           alt=""

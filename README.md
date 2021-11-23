@@ -1,10 +1,21 @@
-# PAINT-APP
+# PAINT-APP - Front End Web App
+
+
+# The Team
+
+* Sonam Malhotra [https://github.com/sonamm24]
+* Carolyn [https://github.com/cascobie]
+
+# Description
 
 Paint app is a front-end painting app that provides a blank canvas for the user to express their creativity. Our app was built in React with JS, HTML and CSS.
 
-# FINAL PRODUCT
-
-![image description](image link)
+![Home](https://github.com/sonamm24/PaintApp/blob/master/Docs/Home.png)
+![About](https://github.com/sonamm24/PaintApp/blob/master/Docs/About.png)
+![Registeration](https://github.com/sonamm24/PaintApp/blob/master/Docs/Register.png)
+![Login](https://github.com/sonamm24/PaintApp/blob/master/Docs/Login.png)
+![Create a Painting](https://github.com/sonamm24/PaintApp/blob/master/Docs/Create%20a%20painting.png)
+![Download Painting as an image](https://github.com/sonamm24/PaintApp/blob/master/Docs/Download.png)
 
 # GETTING STARTED
 
@@ -16,3 +27,7 @@ Paint app is a front-end painting app that provides a blank canvas for the user 
 # DEPENDENCIES
 
 - Node 15.3.0 or above
+
+# Deployed on GitHUb:
+
+ https://sonamm24.github.io/PaintApp/

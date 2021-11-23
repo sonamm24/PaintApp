@@ -65,53 +65,18 @@ function App() {
   
 
   return (
-    
-    <Fragment>
+    <Router>
 
-      <Router>
-        {isAuthenticated ? (
-          <PrivateDashboard setAuth={setAuth} />
-
-        ) : (
-        
-          <LandingPage />
-      
-
-        )}
-        <div>
-        <Routes>
-          <Route 
-            exact 
-            path="/login" 
-            element={ !isAuthenticated ? (<LoginPage setAuth={setAuth}/>) : (<Navigate to="/" />)} 
-            />
-          <Route 
-            exact
-            path="/" 
-            element={ <Home />} 
-            />
-          <Route 
-            exact 
-            path="/register" 
-            element={ !isAuthenticated ? (<RegisterPage setAuth={setAuth}/>) : (<Navigate to="/" />)} 
-            />
-          <Route path="/painting" 
-          exact element={isAuthenticated ?  (<Painting />) : (<Navigate to="/"/>)}
-            />
-          <Route path="/about" 
-          exact element={<About />}
-            />
-
-          </Routes>
-        </div>
-      </Router>
-
-    </Fragment>
-
-
-
-
-);
+      <Navbar />
+      <Routes>
+        <Route path="/PaintApp/" exact element={<Home />} />
+        <Route path="/PaintApp/about" element={<About />} />
+        <Route path="/PaintApp/login" element={<Login />} />
+        <Route path="/PaintApp/register" element={<Register />} />
+        <Route path="/PaintApp/painting" element={<Painting />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
