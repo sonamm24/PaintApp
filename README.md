@@ -3,8 +3,8 @@
 
 # The Team
 
-** Sonam Malhotra
-** Carolyn
+* Sonam Malhotra [https://github.com/sonamm24]
+* Carolyn [https://github.com/cascobie]
 
 # Description
 
