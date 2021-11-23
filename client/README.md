@@ -1,16 +1,25 @@
-# Getting Started with Create React App
+# PAINT-APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Paint app is a front-end painting app that provides a blank canvas for the user to express their creativity. Our app was built in React with JS, HTML and CSS.
 
-## Available Scripts
+# FINAL PRODUCT
 
-In the project directory, you can run:
+![image description](image link)
 
-### `npm start`
+# GETTING STARTED
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser for Frontend.
+1. Install dependencies using the npm install command.
+2. Go to the client directory.
+3. Start the web server using the npm start command. The app will be served at http://localhost:3000/.
+4. Go to http://localhost:3000/ in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser for Backend.
-The page will reload if you make edits.\
+# DEPENDENCIES
+
+- Node 15.3.0 or above
+
+# Deployed on GitHUb:
+
+ https://sonamm24.github.io/PaintApp/
+
+ 
 
