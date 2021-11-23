@@ -31,7 +31,7 @@ export class Login extends React.Component {
       </div>
       
       <div className="footer">
-      <Link to="/about">
+      <Link to="/PaintApp/about">
         <button type="button" className="btn">Login</button>
         </Link>
       </div>

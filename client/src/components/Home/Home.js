@@ -8,7 +8,7 @@ export class Home extends React.Component {
     return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '120' }}>
 
-      <Link to="/"></Link>
+      <Link to="/PaintApp/"></Link>
       <div className="parallax">
         <img
           alt=""
