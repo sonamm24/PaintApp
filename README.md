@@ -25,6 +25,6 @@ Paint app is a front-end painting app that provides a blank canvas for the user 
 ![Home](https://github.com/sonamm24/PaintApp/blob/master/Docs/Home.png)
 ![About](https://github.com/sonamm24/PaintApp/blob/master/Docs/About.png)
 ![Registeration](https://github.com/sonamm24/PaintApp/blob/master/Docs/Register.png)
-![Login](https://github.com/sonamm24/PaintApp/blob/master/Docs/Home.png)
+![Login](https://github.com/sonamm24/PaintApp/blob/master/Docs/Login.png)
 ![Create a Painting](https://github.com/sonamm24/PaintApp/blob/master/Docs/Create%20a%20painting.png)
 ![Download Painting as an image](https://github.com/sonamm24/PaintApp/blob/master/Docs/Download.png)
