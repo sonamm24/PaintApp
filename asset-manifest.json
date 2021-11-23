@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PaintApp/static/css/main.4b74364a.chunk.css",
-    "main.js": "/PaintApp/static/js/main.7da41924.chunk.js",
+    "main.js": "/PaintApp/static/js/main.9796fac6.chunk.js",
     "runtime-main.js": "/PaintApp/static/js/runtime-main.9c7a11d8.js",
     "static/js/2.fe60e201.chunk.js": "/PaintApp/static/js/2.fe60e201.chunk.js",
     "static/js/3.21de222f.chunk.js": "/PaintApp/static/js/3.21de222f.chunk.js",
@@ -12,6 +12,6 @@
     "static/js/runtime-main.9c7a11d8.js",
     "static/js/2.fe60e201.chunk.js",
     "static/css/main.4b74364a.chunk.css",
-    "static/js/main.7da41924.chunk.js"
+    "static/js/main.9796fac6.chunk.js"
   ]
 }
