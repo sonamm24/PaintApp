@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-import '../../canvas.css'
+import './canvas.css'
 
 const colors = [
   {
@@ -69,33 +69,61 @@ const lineWidth = [
   }
 ]
 
-function Painting() {
+export class Painting extends React.Component {
 
-  const canvasRef = useRef(null);
-  const contextRef = useRef(null);
+  constructor(props) {
+    super(props);
 
-  const [selectedColor, setSelectedColor] = useState(colors[0]);
-  const [selectedSize, setSelectedSize] = useState(lineWidth[0]);
-  const [isDrawing, setIsDrawing] = useState(false);
+    this.state = {
+      selectedColor: colors[0],
+      selectedSize: lineWidth[0],
+      isDrawing: false
+    }
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-    canvas.width = 600 * 2
-    canvas.height = 600 * 2
-    canvas.style.width = '600px'
-    canvas.style.height = '600px'
+    this.canvasRef = React.createRef(null);
+    this.contextRef = React.createRef(null);
+  }
+
+  componentDidMount() {
+    this.canvasSetup();
+  }
+
+  canvasSetup() {
+    const canvas = this.canvasRef.current;
+    canvas.width = 600 * 2;
+    canvas.height = 600 * 2;
+    canvas.style.width = '600px';
+    canvas.style.height = '600px';
     canvas.style.border = "2px solid #000";
 
-    const context = canvas.getContext('2d')
-    context.scale(2, 2)
-    context.lineCap = "round"
-    context.strokeStyle = selectedColor;
-    context.lineWidth = selectedSize;
-    contextRef.current = context;
-  }, []);
+    const context = canvas.getContext('2d');
+    context.scale(2, 2);
+    context.lineCap = "round";
+    context.strokeStyle = this.state.selectedColor;
+    context.lineWidth = this.state.selectedSize;
+    this.contextRef.current = context;
+  }
 
-  const download = async () => {
-    const image = canvasRef.current.toDataURL('image/png');
+  setSelectedColor(colorVal) {
+    this.setState({
+      selectedColor: colorVal
+    });
+  }
+
+  setSelectedSize(sizeVal) {
+    this.setState({
+      selectedSize: sizeVal
+    });
+  }
+
+  setIsDrawing(drawStatus) {
+    this.setState({
+      isDrawing: drawStatus
+    });
+  }
+
+  download = async () => {
+    const image = this.canvasRef.current.toDataURL('image/png');
     const blob = await (await fetch(image)).blob();
     const blobURL = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -104,80 +132,83 @@ function Painting() {
     link.click();
   }
 
-  const clear = () => {
-    contextRef.current.clearRect(0, 0, contextRef.current.canvas.width, contextRef.current.canvas.height)
+  clear = () => {
+    this.contextRef.current.clearRect(
+      0, 0, this.contextRef.current.canvas.width,
+      this.contextRef.current.canvas.height);
   }
 
-  const startDrawing = ({nativeEvent}) => {
-    const {offsetX, offsetY} = nativeEvent;
-    contextRef.current.beginPath();
-    contextRef.current.moveTo(offsetX, offsetY);
-    setIsDrawing(true)
+  startDrawing = ({ nativeEvent }) => {
+    const { offsetX, offsetY } = nativeEvent;
+    this.contextRef.current.beginPath();
+    this.contextRef.current.moveTo(offsetX, offsetY);
+    this.setIsDrawing(true);
   }
 
-  const finishDrawing = () => {
-    contextRef.current.closePath();
-    setIsDrawing(false)
+  finishDrawing = () => {
+    this.contextRef.current.closePath();
+    this.setIsDrawing(false);
   }
 
-  const draw = ({nativeEvent}) => {
-    if(!isDrawing) {
+  draw = ({ nativeEvent }) => {
+    if (!this.state.isDrawing) {
       return
     }
-    const {offsetX, offsetY} = nativeEvent;
-    contextRef.current.lineTo(offsetX, offsetY)
-    contextRef.current.strokeStyle = selectedColor;
-    contextRef.current.lineWidth = selectedSize;
-    contextRef.current.stroke();
+    const { offsetX, offsetY } = nativeEvent;
+    this.contextRef.current.lineTo(offsetX, offsetY)
+    this.contextRef.current.strokeStyle = this.state.selectedColor;
+    this.contextRef.current.lineWidth = this.state.selectedSize;
+    this.contextRef.current.stroke();
   }
 
+  render() {
+    return (
+      <div className="container-painting">
 
-  return (
-    <div className="container-painting">
+        <div className="painting">
 
-      <div className="painting">
-  
-        <canvas className="canvas"
-          onMouseDown={startDrawing}
-          onMouseUp={finishDrawing}
-          onMouseMove={draw}
-          ref={canvasRef}
-        />
-        </div> 
-        <div className="buttons-painting"> 
+          <canvas className="canvas"
+            onMouseDown={this.startDrawing}
+            onMouseUp={this.finishDrawing}
+            onMouseMove={this.draw}
+            ref={this.canvasRef}
+          />
+        </div>
+        <div className="buttons-painting">
           <select
             className="btn-paint"
-            value={selectedColor}
-            onChange={(e) => setSelectedColor(e.target.value)}
+            value={this.state.selectedColor}
+            onChange={(e) => this.setSelectedColor(e.target.value)}
           >
             {
               colors.map(
                 color => <option key={color.name} value={color.ref}>{color.name}</option>
-                )
-              }        
+              )
+            }
           </select>
           &nbsp;
           &nbsp;
           <select
             className="btn-paint"
-            value={selectedSize}
-            onChange={(e) => setSelectedSize(e.target.value)}
+            value={this.state.selectedSize}
+            onChange={(e) => this.setSelectedSize(e.target.value)}
           >
             {
               lineWidth.map(
                 size => <option key={size.name} value={size.value}>{size.name}</option>
-                )
-              }        
+              )
+            }
           </select>
           &nbsp;
           &nbsp;
-          <button className="btn-paint" onClick={clear}>Clear</button>
+          <button className="btn-paint" onClick={this.clear}>Clear</button>
           &nbsp;
           &nbsp;
-          <button className="btn-paint" onClick={download}>Download</button>
+          <button className="btn-paint" onClick={this.download}>Download</button>
         </div>
-            <Link to="/painting"></Link>
-    </div>
-  )
+        <Link to="/painting"></Link>
+      </div>
+    )
+  }
 }
-export default Painting;
+

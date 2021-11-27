@@ -1,0 +1,11 @@
+.parallax {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 80px);
+}
+
+.image-1 {
+  width: 100%;
+}
