@@ -3,17 +3,17 @@ import { Navbar } from './components/NavBar/NavBar';
 import './App.css';
 import './components/About/About.css';
 import './components/NavBar/NavLogo.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import { About } from './components/About/About';
 import { Painting } from './components/Painting/Painting';
 import { Login } from './components/Authentication/Login';
 import { Register } from './components/Authentication/Register';
+import PrivateDashboard from './components/PrivateDashboard';
 
 function App() {
   return (
     <Router>
-
       <Navbar />
       <Routes>
         <Route path="/PaintApp/" exact element={<Home />} />

@@ -31,5 +31,3 @@ Paint app is a front-end painting app that provides a blank canvas for the user 
 # Deployed on GitHUb:
 
  https://sonamm24.github.io/PaintApp/
-
-
