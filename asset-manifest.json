@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/PaintApp/static/css/main.4b74364a.chunk.css",
-    "main.js": "/PaintApp/static/js/main.9796fac6.chunk.js",
-    "runtime-main.js": "/PaintApp/static/js/runtime-main.9c7a11d8.js",
-    "static/js/2.fe60e201.chunk.js": "/PaintApp/static/js/2.fe60e201.chunk.js",
-    "static/js/3.21de222f.chunk.js": "/PaintApp/static/js/3.21de222f.chunk.js",
+    "main.css": "/PaintApp/static/css/main.fb1aaf46.chunk.css",
+    "main.js": "/PaintApp/static/js/main.0bc4cd0d.chunk.js",
+    "runtime-main.js": "/PaintApp/static/js/runtime-main.7764cf37.js",
+    "static/js/2.258bf482.chunk.js": "/PaintApp/static/js/2.258bf482.chunk.js",
+    "static/js/3.d06221cb.chunk.js": "/PaintApp/static/js/3.d06221cb.chunk.js",
     "index.html": "/PaintApp/index.html",
-    "static/js/2.fe60e201.chunk.js.LICENSE.txt": "/PaintApp/static/js/2.fe60e201.chunk.js.LICENSE.txt"
+    "static/js/2.258bf482.chunk.js.LICENSE.txt": "/PaintApp/static/js/2.258bf482.chunk.js.LICENSE.txt",
+    "static/media/cover.png": "/PaintApp/static/media/cover.bde2ca76.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.9c7a11d8.js",
-    "static/js/2.fe60e201.chunk.js",
-    "static/css/main.4b74364a.chunk.css",
-    "static/js/main.9796fac6.chunk.js"
+    "static/js/runtime-main.7764cf37.js",
+    "static/js/2.258bf482.chunk.js",
+    "static/css/main.fb1aaf46.chunk.css",
+    "static/js/main.0bc4cd0d.chunk.js"
   ]
 }
